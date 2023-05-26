@@ -1,6 +1,6 @@
 
 
-# YYXXGAME-PKG
+# YYXXGAME-PKG1
 
 `yyxx-game-pkg` 是一个专门为元游公司后台开发的 Python 内部接口集合。
 
