@@ -39,7 +39,7 @@ jobs:
         run: poetry config repositories.yyxx-gitlab ${{secrets.YYXX_GITLAB}}
 
       - name : Poetry Set Auth
-        run: poetry config http-basic.yyxx-gitlab ${{secrets.YYXX_GITLAB_PUBLISH_USER}} ${{YYXX_GITLAB_PUBLISH_TOKEN}}
+        run: poetry config http-basic.yyxx-gitlab ${{secrets.YYXX_GITLAB_PUBLISH_USER}} ${{secrets.YYXX_GITLAB_PUBLISH_TOKEN}}
 
       - name: Build Publish
         run: poetry publish --build --repository yyxx-gitlab
