@@ -35,8 +35,9 @@ jobs:
       - name: Modify toml Set Version
         run: python gen_version.py
 
-      - name: Build dist
-        run: poetry build --no-interaction
-        
-      - name: Publish a Python distribution to PyPI
-        run: poetry publish yyxx-gitlab
+      - name: Poetry Set
+      - run: poetry config repositories.yyxx-gitlab ${{secrets.YYXX_GITLAB}}
+      - run: poetry config http-basic.yyxx-gitlab ${{secrets.YYXX_GITLAB_PUBLISH_USER}} ${{YYXX_GITLAB_PUBLISH_TOKEN}}
+
+      - name: Build & Publish
+        run: poetry publish --build --repository yyxx-gitlab
