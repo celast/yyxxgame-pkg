@@ -36,10 +36,7 @@ jobs:
         run: python gen_version.py
 
       - name: Poetry Set Repo
-        run: poetry config repositories.yyxx-gitlab ${{secrets.YYXX_GITLAB}}
-
-      - name : Poetry Set Auth
-        run: poetry config http-basic.yyxx-gitlab ${{secrets.YYXX_GITLAB_PUBLISH_USER}} ${{secrets.YYXX_GITLAB_PUBLISH_TOKEN}}
-
-      - name: Build Publish
-        run: poetry publish --build --repository yyxx-gitlab
+        run: |
+          poetry config repositories.yyxx-gitlab ${{secrets.YYXX_GITLAB}}
+          poetry config http-basic.yyxx-gitlab __token__ ${{secrets.YYXX_GITLAB_PUBLISH_TOKEN}}
+          poetry publish --build --repository yyxx-gitlab
