@@ -7,7 +7,7 @@
 from yyxx_game_pkg.logger import log
 from yyxx_game_pkg.xtrace.helper import get_current_trace_id
 
-
+# TEST
 class StatLogConfig(log.LogConfig):
     """
     logging 配置
